@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<h1>Welcome to the meeting planner</h1>
+<p>
+    <a href="https://www.pluralsight.com">Link to pluralsight</a>
+</p>
+
+<h2>Meetings</h2>
+<ul>
+    {% for meeting in meetings %}
+    <li>
+        <a href="{% url 'detail' meeting.id %}">
+           {{ meeting.title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<img src="static/website_mine/meetingplanner.jpg" alt="Meeting Picture" style="float:center;width:280px;height:280px;">
+<br>
+<a href="{% url 'new' %}">Create a new meeting</a>
+
+<h2>Rooms</h2>
+<a href="{% url 'rooms' %}">Room Details</a>
+{% endblock %}

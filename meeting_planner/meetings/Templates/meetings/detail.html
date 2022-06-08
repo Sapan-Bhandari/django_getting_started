@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Meeting: {{meeting.title}}{% endblock %}
+
+{% block content %}
+<h1>{{meeting.title}}</h1>
+<p>
+    Date: {{meeting.date}}
+    Start Time: {{meeting.start_time}}
+    Meeting Room: {{meeting.room}}
+</p>
+
+<a href = "{% url 'welcome' %}">Home</a>
+<a href = "{% url 'edit' id=meeting.id %}">Edit</a>
+<a href = "{% url 'delete' id=meeting.id %}">Delete</a>
+
+{% endblock %}
